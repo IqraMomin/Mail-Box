@@ -4,6 +4,7 @@ import App from './App.jsx'
 import { Provider } from 'react-redux'
 import store from './store/index'
 import { BrowserRouter } from 'react-router-dom/cjs/react-router-dom.min'
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
 createRoot(document.getElementById('root')).render(
     <BrowserRouter>

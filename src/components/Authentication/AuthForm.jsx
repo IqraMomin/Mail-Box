@@ -55,7 +55,10 @@ function AuthForm() {
         if (isLogin) {
             try{
                 const response = await axios.post("https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBxYa4WhYcCJqoiFw3CpL04EubFKy52IO4",userData);
-                dispatch(authActions.login(response.data.idToken));
+                dispatch(authActions.login({
+                    token:response.data.idToken,
+                    email
+                }));
                history.replace("/welcome");
                
 
