@@ -79,7 +79,8 @@ function AuthForm() {
 
 
     return (
-        <div className='container'>
+        <div className='auth-wrapper'>
+        <div className='auth-div'>
             <form className='form-input' onSubmit={formSubmitHandler}>
                 <h2>Sign Up</h2>
                 {error.email && <p>{error.email}</p>}
@@ -93,6 +94,7 @@ function AuthForm() {
                 </div>
             </form>
             <div className='login-signup'><button onClick={() => { setIsLogin(prev=> !prev) }} className='btn'>{isLogin ? "Create new account? SignUp":"Have an account? Login"}</button></div>
+        </div>
         </div>
     )
 }

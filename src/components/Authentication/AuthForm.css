@@ -1,7 +1,9 @@
 *{
     box-sizing: border-box;
 }
-.container{
+
+
+.auth-div{
     display: flex;
     flex-direction: column;
     gap: 1.5rem;

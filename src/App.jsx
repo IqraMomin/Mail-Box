@@ -7,10 +7,12 @@ import Welcome from './components/Welcome'
 
 function App() {
   return (
-    <div className='container'>
+    <div>
       <MainHeader/>
       <Switch>
-      <Route path="/" exact><AuthForm/></Route>
+      <div className="auth-wrapper">
+            <AuthForm />
+          </div>
       <Route path="/welcome"><Welcome/></Route>
       </Switch>
       

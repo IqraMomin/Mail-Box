@@ -1,0 +1,74 @@
+*{
+    box-sizing: border-box;
+}
+.send-email-div form{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.editor-div{
+    display: flex;
+}
+.demo-editor {
+    min-height: 300px;
+    padding: 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: white;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow: hidden;
+  }
+  .send-email-div form input{
+    background-color: #DDD0C8;
+    height: 2rem;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 0 0.5rem;
+    color: black;
+  }
+  .send-email-div {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .send-email-div > button {
+    align-self: flex-end;
+    color: black;
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Reduce toolbar height */
+.demo-wrapper .rdw-editor-toolbar {
+    min-height: 32px !important;
+    height: 32px !important;
+    padding: 2px !important;
+  }
+  
+  /* Make toolbar buttons smaller */
+  .demo-wrapper .rdw-option-wrapper {
+    height: 26px !important;
+    width: 26px !important;
+    padding: 2px !important;
+  }
+  
+  .demo-wrapper .rdw-option-wrapper img {
+    height: 14px !important;
+    width: 14px !important;
+  }
+  
+  /* Make dropdowns smaller */
+  .demo-wrapper .rdw-dropdown-wrapper {
+    height: 28px !important;
+    padding: 2px 4px !important;
+  }
+  
+  .demo-wrapper .rdw-dropdown-wrapper span {
+    font-size: 12px !important;
+  }
+  
