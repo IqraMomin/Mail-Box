@@ -15,6 +15,10 @@ const authSlice = createSlice({
             state.token = action.payload.token;
             state.email = action.payload.email;
 
+            localStorage.setItem("token",action.payload.token);
+            localStorage.setItem("email",action.payload.email);
+            
+
         },
         logout:(state)=>{
 

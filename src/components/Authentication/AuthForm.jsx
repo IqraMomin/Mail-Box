@@ -59,7 +59,7 @@ function AuthForm() {
                     token:response.data.idToken,
                     email
                 }));
-               history.replace("/welcome");
+               history.replace("/inbox");
                
 
             }catch(error){
