@@ -27,12 +27,12 @@
     top: 140px;
     left: 0;
     width: 100vw;
-    height: calc(100vh - 130px);
-    background-color: gray;
+    height: calc(100vh - 135px);
+    background-color: white;
     display: flex;
     justify-content: flex-start;
-    margin: 0;
 }
+
 
 .menu-div {
     width: 20vw;
@@ -42,15 +42,20 @@
     flex-direction: column;
     align-items: center;
     padding: 2rem;
+    gap: 2rem;
 }
 .compose-btn{
-    width: 70%;
+    width: 90%;
 }
 
 .mail-div {
     width: 80vw;
     height: 100%;
     background-color: white;
+
+    /* flex: 1;    
+    padding-bottom: 40px; 
+    height: 100%; */
 }
 
 .mail-div ul {
@@ -58,7 +63,50 @@
     width: 100%;
     height: 100%;
     padding: 0;
+    padding-bottom: 1.5rem;
+    overflow-y: auto;
+    overflow-x: hidden;   
+    white-space: nowrap;
     
 }
 
-
+.inbox-div{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    
+}
+.message:hover{
+    background-color: #DDD0C8;
+    font-size: large;
+}
+.mail-div ul::-webkit-scrollbar {
+    width: 10px;  
+  }
+  
+  .mail-div ul::-webkit-scrollbar-track {
+    background: #f1f1f1;    /* track color */
+  }
+  
+  .mail-div ul::-webkit-scrollbar-thumb {
+    background: #888;       /* scrollbar color */
+    border-radius: 10px;    /* smooth round edges */
+  }
+  
+  .mail-div ul::-webkit-scrollbar-thumb:hover {
+    background: gray;       /* darker on hover */
+  }
+  .message{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(218, 236, 251);
+    border: 1px solid aliceblue;
+    height: 3rem;
+    padding: 1rem;
+    border-radius: 2px;
+    align-items: center;
+    cursor: pointer;
+  }
+  

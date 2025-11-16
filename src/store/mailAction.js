@@ -27,7 +27,7 @@ export const fetchMessages =  () => {
 };
 
 export const sendMail = (sender,receiver,subject,body)=>{
-    return async(dispatch,getState)=>{
+    return async(dispatch)=>{
         try{
             
             const safeSender = sender.replace(/[.]/g,"_");
@@ -49,12 +49,9 @@ export const sendMail = (sender,receiver,subject,body)=>{
             }))
 
             if(safeSender===safeReceiver){
-                dispatch(mailActions.receivedMail([...getState().mail.inbox,{
-                    id:inbox.data.name,...emailData
-                }]));
+                dispatch(mailActions.receivedMail({id:inbox.data.name,emailData}));
             }
-
-            
+        //    dispatch(fetchMessages());
 
             return {success:true}
 
@@ -72,6 +69,20 @@ export const updateReadStatus = (id)=>{
             dispatch(mailActions.markAsRead(id));
         }catch(error){
 
+        }
+    }
+}
+
+export const deleteFromDatabase = (id)=>{
+    return async(dispatch,getState)=>{
+        try{
+            const email = getState().auth.email;
+            const safeEmail = email.replace(/[.]/g,"_");
+            const response = await axios.delete(`https://client-mail-box-5ac6c-default-rtdb.firebaseio.com/${safeEmail}/inbox/${id}.json`)
+            console.log(response);
+            dispatch(mailActions.deleteMail(id));
+        }catch(error){
+            console.log(error);
         }
     }
 }

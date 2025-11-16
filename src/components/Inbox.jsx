@@ -12,12 +12,16 @@ import { fetchMessages } from '../store/mailAction';
 
 function Inbox() {
     const dispatch = useDispatch();
-    //const emailId = useSelector(state => state.auth.email);
+    const email = useSelector(state => state.auth.email);
     const [openEditor,setOpenEditor] = useState(false);
+    const unReadTotal = useSelector(state=>state.mail.unReadTotal);
 
     useEffect(() => {
-        dispatch(fetchMessages());
-    }, [dispatch]);
+        if (email && email.trim().length > 0) {
+            dispatch(fetchMessages());
+        }
+
+    }, [email,dispatch]);
 
     const showEditorHandler = ()=>{setOpenEditor(prev=>!prev)}
 
@@ -35,6 +39,18 @@ function Inbox() {
             <div className='menu-div-content'>
                 <div className='menu-div'>
                     <button onClick={showEditorHandler} className='compose-btn'>Compose Email</button>
+                    <div className='inbox-div'>
+                        <div className='message'>
+                        <div>Inbox</div>
+                        <div>{unReadTotal}</div>
+                        </div>
+                        <div className='message'>
+                        <div>Sentbox</div>
+                        <div>{unReadTotal}</div>
+                        </div>
+                        
+                    </div>
+                   
                 </div>
                 {openEditor && <EmailBox onCancel={showEditorHandler}/>}
                 <div className='mail-div'>

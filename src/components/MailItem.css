@@ -25,3 +25,14 @@
     display: inline-block;
     margin-right: 10px;
 }
+.delete-btn{
+    color: black;
+    text-decoration: underline;
+    background: none;
+    border: 0;
+}
+.delete-btn:hover{
+    background: none;
+    font-size: large;
+    border: 0;
+}
