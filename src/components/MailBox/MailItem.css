@@ -10,7 +10,9 @@
     justify-content: flex-start;
     align-items: center;
     gap: 2rem;
-    padding: 0 2rem;
+    text-align: left;
+    padding: 0 1rem;
+    height: 3rem;
 }
 .mail-item:hover{
     background-color: #ddd;
@@ -24,6 +26,7 @@
     background-color: blue;
     display: inline-block;
     margin-right: 10px;
+    text-align: center;
 }
 .delete-btn{
     color: black;
@@ -35,4 +38,22 @@
     background: none;
     font-size: large;
     border: 0;
+}
+.from-div{
+    width: 20%;
+    margin-left: 1rem;
+}
+.subject-div{
+    width: 35%;
+}
+.delete-div{
+    width: 15%;
+    position: relative;
+    right: 60px;
+}
+.date-div{
+    position: relative;
+    right: 35px;
+    width: 15%;
+    text-align: right;
 }

@@ -5,8 +5,11 @@ import {useDispatch, useSelector } from 'react-redux';
 // import axios from 'axios';
 // import { mailActions } from '../store/mail-slice';
 import MailItem from './MailItem';
-import EmailBox from './EmailBox';
-import { fetchMessages } from '../store/mailAction';
+import EmailBox from '../EmailBox';
+import { fetchMessages } from '../../store/mailAction';
+import InboxScreen from './InboxScreen';
+import SentboxScreen from './SentboxScreen';
+import OpenMail from './OpenMail';
 
 
 
@@ -15,6 +18,7 @@ function Inbox() {
     const email = useSelector(state => state.auth.email);
     const [openEditor,setOpenEditor] = useState(false);
     const unReadTotal = useSelector(state=>state.mail.unReadTotal);
+    const [screen,setScreen] = useState("inbox");
 
     useEffect(() => {
         if (email && email.trim().length > 0) {
@@ -25,7 +29,6 @@ function Inbox() {
 
     const showEditorHandler = ()=>{setOpenEditor(prev=>!prev)}
 
-    const inboxMessages = useSelector(state => state.mail.inbox);
     return (
         <div className='container'>
             <div className="toolbar-div">
@@ -40,13 +43,13 @@ function Inbox() {
                 <div className='menu-div'>
                     <button onClick={showEditorHandler} className='compose-btn'>Compose Email</button>
                     <div className='inbox-div'>
-                        <div className='message'>
+                        <div className={`message ${screen==="inbox" ? "active-btn":""}`} onClick={()=>{setScreen("inbox")}}>
                         <div>Inbox</div>
                         <div>{unReadTotal}</div>
                         </div>
-                        <div className='message'>
-                        <div>Sentbox</div>
-                        <div>{unReadTotal}</div>
+                        <div className={`message ${screen==="sentbox" ? "active-btn":""}`} onClick={()=>{setScreen("sentbox")}}>
+                        <div>Sent</div>
+                        <div></div>
                         </div>
                         
                     </div>
@@ -54,14 +57,10 @@ function Inbox() {
                 </div>
                 {openEditor && <EmailBox onCancel={showEditorHandler}/>}
                 <div className='mail-div'>
-                    <ul>
-                        {inboxMessages.map(ele => {
-                            return <MailItem
-                                key={ele.id}
-                                id={ele.id}
-                                item={ele} />
-                        })}
-                    </ul>
+                    {screen==="inbox" && <InboxScreen/>}
+                    {screen==="sentbox" && <SentboxScreen/>}
+                    {screen==="message" && <OpenMail/>}
+                    
                 </div>
             </div>
 

@@ -44,8 +44,10 @@
     padding: 2rem;
     gap: 2rem;
 }
-.compose-btn{
+
+.compose-btn {
     width: 90%;
+    height: 3rem;
 }
 
 .mail-div {
@@ -65,39 +67,46 @@
     padding: 0;
     padding-bottom: 1.5rem;
     overflow-y: auto;
-    overflow-x: hidden;   
+    overflow-x: hidden;
     white-space: nowrap;
-    
+
 }
 
-.inbox-div{
+.inbox-div {
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    
+
 }
-.message:hover{
+
+.message:hover {
     background-color: #DDD0C8;
     font-size: large;
 }
+
 .mail-div ul::-webkit-scrollbar {
-    width: 10px;  
-  }
-  
-  .mail-div ul::-webkit-scrollbar-track {
-    background: #f1f1f1;    /* track color */
-  }
-  
-  .mail-div ul::-webkit-scrollbar-thumb {
-    background: #888;       /* scrollbar color */
-    border-radius: 10px;    /* smooth round edges */
-  }
-  
-  .mail-div ul::-webkit-scrollbar-thumb:hover {
-    background: gray;       /* darker on hover */
-  }
-  .message{
+    width: 10px;
+}
+
+.mail-div ul::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    /* track color */
+}
+
+.mail-div ul::-webkit-scrollbar-thumb {
+    background: #888;
+    /* scrollbar color */
+    border-radius: 10px;
+    /* smooth round edges */
+}
+
+.mail-div ul::-webkit-scrollbar-thumb:hover {
+    background: gray;
+    /* darker on hover */
+}
+
+.message {
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -108,5 +117,8 @@
     border-radius: 2px;
     align-items: center;
     cursor: pointer;
-  }
-  
+}
+.active-btn{
+    background-color: #DDD0C8;
+    border-left: 3px solid black;
+}

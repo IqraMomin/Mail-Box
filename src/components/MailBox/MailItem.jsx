@@ -1,10 +1,10 @@
 import React from 'react'
 import "./MailItem.css"
-import { updateReadStatus } from '../store/mailAction';
+import { updateReadStatus } from '../../store/mailAction';
 import { useDispatch } from 'react-redux';
-import { deleteFromDatabase } from '../store/mailAction';
+import { deleteFromDatabase } from '../../store/mailAction';
 
-function MailItem({item}) {
+function MailItem({item,bluedot}) {
     const dispatch = useDispatch();
     const openMailHandler = ()=>{
         dispatch(updateReadStatus(item.id));
@@ -15,7 +15,7 @@ function MailItem({item}) {
     }
     return (
         <li className='mail-item' onClick={openMailHandler}>
-            {!item.isRead && <div className='blue-dot'></div>}
+            {!item.isRead && bluedot && <div className='blue-dot'></div>}
             <div className='from-div'>{item.from}</div>
             <div className='subject-div'>{item.subject}</div>
             <div className='delete-div'>

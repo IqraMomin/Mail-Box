@@ -4,7 +4,7 @@ import AuthForm from './components/Authentication/AuthForm'
 import MainHeader from './components/UI/MainHeader'
 import { Route, Switch } from 'react-router-dom/cjs/react-router-dom.min'
 import Welcome from './components/Welcome'
-import Inbox from './components/Inbox'
+import Inbox from './components/MailBox/Inbox'
 import { useDispatch } from 'react-redux'
 import { authActions } from './store/auth-slice'
 
