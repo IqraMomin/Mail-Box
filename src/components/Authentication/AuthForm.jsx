@@ -4,6 +4,7 @@ import axios from 'axios';
 import { authActions } from '../../store/auth-slice';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import { startTimer } from '../../store/mailAction';
 
 
 function AuthForm() {
@@ -60,7 +61,8 @@ function AuthForm() {
                     email
                 }));
                 localStorage.setItem("token",response.data.idToken);
-                localStorage.setItem("email",email);    
+                localStorage.setItem("email",email);  
+                dispatch(startTimer());  
                history.replace("/inbox");
                
 

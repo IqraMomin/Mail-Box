@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import {authActions} from "../../store/auth-slice"
 import { mailActions } from '../../store/mail-slice'
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
+import { stopTimer } from '../../store/mailAction'
 
 function MainHeader() {
     const isLoggedIn = useSelector(state=>state.auth.isLoggedIn);
@@ -15,6 +16,7 @@ function MainHeader() {
         dispatch(mailActions.resetMail());
         localStorage.removeItem("token");
         localStorage.removeItem("email");
+        dispatch(stopTimer());
         history.replace("/");
     }
     return (
