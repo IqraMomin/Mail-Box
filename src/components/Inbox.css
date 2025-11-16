@@ -1,3 +1,64 @@
-.container{
+* {
+    box-sizing: border-box;
+}
+
+.container {
     display: flex;
 }
+
+.container {
+    width: 100%;
+}
+
+.toolbar-div {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background-color: black;
+    color: #DDD0C8;
+    display: flex;
+    margin: 0;
+}
+
+.menu-div-content {
+    position: fixed;
+    top: 140px;
+    left: 0;
+    width: 100vw;
+    height: calc(100vh - 130px);
+    background-color: gray;
+    display: flex;
+    justify-content: flex-start;
+    margin: 0;
+}
+
+.menu-div {
+    width: 20vw;
+    height: 100%;
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+}
+.compose-btn{
+    width: 70%;
+}
+
+.mail-div {
+    width: 80vw;
+    height: 100%;
+    background-color: white;
+}
+
+.mail-div ul {
+    list-style: none;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    
+}
+
+

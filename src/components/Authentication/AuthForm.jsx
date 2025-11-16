@@ -59,6 +59,8 @@ function AuthForm() {
                     token:response.data.idToken,
                     email
                 }));
+                localStorage.setItem("token",response.data.idToken);
+                localStorage.setItem("email",email);    
                history.replace("/inbox");
                
 
@@ -82,7 +84,7 @@ function AuthForm() {
         <div className='auth-wrapper'>
         <div className='auth-div'>
             <form className='form-input' onSubmit={formSubmitHandler}>
-                <h2>Sign Up</h2>
+                <h2>{isLogin ? "Login" : "Sign Up"}</h2>
                 {error.email && <p>{error.email}</p>}
                 <input placeholder='Email' type="email" value={email} onChange={emailChangeHandler} />
                 {error.password && <p>{error.password}</p>}

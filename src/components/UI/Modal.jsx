@@ -15,8 +15,6 @@ return <div className='modal'>
 
 function Modal(props) {
     const portalElement = document.getElementById("overlay");
-    console.log(portalElement);
-
     return (
         <React.Fragment>
             {ReactDOM.createPortal(<Backdrop/>,portalElement)}
