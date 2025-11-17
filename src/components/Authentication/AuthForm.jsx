@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import "./AuthForm.css"
-import axios from 'axios';
 import { authActions } from '../../store/auth-slice';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { startTimer } from '../../store/mailAction';
+import useApi from '../../hooks/useApi';
 
 
 function AuthForm() {
@@ -13,6 +13,7 @@ function AuthForm() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
+    const {post} = useApi();
     const errorMessage = {
         email: "", password: "", confirmPassword: ""
     }
@@ -54,30 +55,21 @@ function AuthForm() {
             email, password, returnSecureToken: true
         }
         if (isLogin) {
-            try{
-                const response = await axios.post("https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBxYa4WhYcCJqoiFw3CpL04EubFKy52IO4",userData);
+                const response = await post("https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBxYa4WhYcCJqoiFw3CpL04EubFKy52IO4",userData);
                 dispatch(authActions.login({
-                    token:response.data.idToken,
+                    token:response.idToken,
                     email
                 }));
-                localStorage.setItem("token",response.data.idToken);
+                localStorage.setItem("token",response.idToken);
                 localStorage.setItem("email",email);  
                 dispatch(startTimer());  
                history.replace("/inbox");
-               
 
-            }catch(error){
-                alert(error);
-            }
 
         } else {
-            try {
-                await axios.post("https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBxYa4WhYcCJqoiFw3CpL04EubFKy52IO4", userData);
+                await post("https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBxYa4WhYcCJqoiFw3CpL04EubFKy52IO4", userData);
                 console.log("User registered successfully");
 
-            } catch (error) {
-                console.log(error);
-            }
         }
     }
 
