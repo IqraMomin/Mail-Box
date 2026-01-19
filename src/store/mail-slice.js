@@ -4,6 +4,7 @@ const initialMailState = {
     email:"",
     inbox:[],
     sentbox:[],
+    searchText:"",
     unReadTotal:0
 }
 
@@ -44,6 +45,9 @@ const MailSlice = createSlice({
             state.email = "";
             state.inbox = [];
             state.sentbox = [];
+        },
+        setSearch:(state,action)=>{
+            state.searchText = action.payload;
         }
     }
 })

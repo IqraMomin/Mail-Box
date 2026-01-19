@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState ,useEffect} from 'react'
 import "./AuthForm.css"
 import { authActions } from '../../store/auth-slice';
 import { useDispatch } from 'react-redux';
@@ -19,6 +19,8 @@ function AuthForm() {
     }
     const [error, setError] = useState(errorMessage);
     const [isLogin, setIsLogin] = useState(false);
+
+
 
     const emailChangeHandler = (event) => {
         setEmail(event.target.value);
@@ -62,8 +64,11 @@ function AuthForm() {
                 }));
                 localStorage.setItem("token",response.idToken);
                 localStorage.setItem("email",email);  
-                dispatch(startTimer());  
-               history.replace("/inbox");
+                
+                setTimeout(()=>{
+                    dispatch(startTimer())
+                },0);  
+               history.replace("/mailbox");
 
 
         } else {

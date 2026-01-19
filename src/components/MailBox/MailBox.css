@@ -1,0 +1,27 @@
+.mailbox{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.mailbox-header{
+    height: 60px;
+    flex-shrink: 0;
+}
+.mailbox-body{
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+}
+.mailbox-sidebar {
+    /* padding: 2rem 0; */
+    width: 300px;
+    background: #6c757d;
+  }
+  .mailbox-content{
+    flex: 1;
+    width: 100%;
+    background: fff;
+    overflow-y: auto;
+    padding: 0; 
+    padding-top: 1rem;
+  }

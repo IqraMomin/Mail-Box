@@ -21,16 +21,16 @@ function EmailBox({onCancel}) {
         setSubject(event.target.value);
     }
 
-    const formSubmitHandler = async (event) => {
+    const formSubmitHandler =  (event) => {
         event.preventDefault();
         const body = editorState.getCurrentContent().getPlainText();
-        const result = await dispatch(sendMail(sender,receiver,subject,body));
-        if(result.success){
+        dispatch(sendMail(sender,receiver,subject,body));
+        
             alert("Email sent successfully");
             setReceiver("");
             setSubject("");
             setEditorState("");
-        }
+        
 
     }
 

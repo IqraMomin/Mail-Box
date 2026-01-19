@@ -4,6 +4,8 @@ import App from './App.jsx'
 import { Provider } from 'react-redux'
 import store from './store/index'
 import { BrowserRouter } from 'react-router-dom/cjs/react-router-dom.min'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
 createRoot(document.getElementById('root')).render(
